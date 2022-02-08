@@ -84,32 +84,12 @@ namespace Couchbase.BulkReadAndWrite
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            //await WriteAsync();
+            await WriteAsync();
             //await GetAsync();
             //await UpdateAsync();
             //await DeleteAsync();
             //await GetDataByPaginationAsync();
-            await GetDataByJoinAsync();
-
-            //await DeleteRecordsInBatchesAsync();
-            //await ReadJsonRecordsInParallelAsync();
-            //await UpdateJsonDocsInParallelAsync();
-            //await ReadRecordsWithSimpleJoinInParallelAsync();
-            //await ReadJsonRecordsUsingAnalyticsAsync();            
-            //await BulkReadJsonRecordsWithAnalyticsByPaginationAsync();
-            //await DeleteClientRecordsInBatchesOf5kAsync();
-            //await DeleteAllRecordsInBatchesOf5kAsync();
-            //await DeleteAllRecordsInBatchesAsync();
-            //await DeleteAllRecordsInBatchesAsync();
-            //await DeleteAllRecordsAsync();
-            //await ReadSortedJsonRecordsAsync();
-            //await WriteJsonDocsInParallelAsync();
-            //await FilterAsync();
-            //await WriteKeyValueRecordsInParallelAsync();
-            //await WriteRecordsInParallelAsync();
-            //await ReadRecordsInParallelAsync();
-            //await WriteRecords();
-            //await ReadRecords();
+            //await GetDataByJoinAsync();         
 
         }
 
@@ -583,6 +563,8 @@ namespace Couchbase.BulkReadAndWrite
             }
         }
 
+
+        //Ignore below code
         #region Old methods
 
         private async Task WriteRecords()
