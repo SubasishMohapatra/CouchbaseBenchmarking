@@ -53,6 +53,7 @@ namespace Couchbase.BulkReadAndWrite
                    services.AddCouchbaseBucket<ICouchbaseCacheBucketProvider>("Cache-Sample");
                    services.AddDistributedCouchbaseCache("Cache-Sample", opt => { });
                    services.AddHostedService<BulkOperationsService>();
+                   services.AddHostedService<PlanScenarioBackgroundWorker>();
                });
     }
 }

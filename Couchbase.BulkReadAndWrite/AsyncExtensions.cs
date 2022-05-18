@@ -25,5 +25,23 @@ namespace Couchbase.BulkReadAndWrite
             block.Complete();
             return block.Completion;
         }
+
+        public static async Task ParallelForEachAsync<T>(this IAsyncEnumerable<T> source, Func<T, Task> body, int maxDop = DataflowBlockOptions.Unbounded, TaskScheduler scheduler = null)
+        {
+            var options = new ExecutionDataflowBlockOptions
+            {
+                MaxDegreeOfParallelism = maxDop
+            };
+            if (scheduler != null)
+                options.TaskScheduler = scheduler;
+
+            var block = new ActionBlock<T>(body, options);
+
+            await foreach (var item in source)
+                block.Post(item);
+
+            block.Complete();
+            await block.Completion;
+        }
     }
 }
