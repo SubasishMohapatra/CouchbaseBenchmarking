@@ -42,18 +42,19 @@ namespace Couchbase.BulkReadAndWrite
                        builder.SetMinimumLevel(LogLevel.Warning);
                        builder.AddSerilog(logger: serilogLogger, dispose: true);
                    });
-                   services.AddCouchbase(options =>
-                   options
-                   .WithConnectionString("couchbase://localhost")
-                   //.WithConnectionString("couchbase://server1:11210,server2:11210,server3:11210")
-                   //.WithConnectionString("couchbase://server1,server2,server3")
-                   //.WithConnectionString("couchbase://cb-cluster")
-                   .WithCredentials("Administrator", "*******")
-                   .WithBuckets("Cache-Sample"));
-                   services.AddCouchbaseBucket<ICouchbaseCacheBucketProvider>("Cache-Sample");
-                   services.AddDistributedCouchbaseCache("Cache-Sample", opt => { });
-                   services.AddHostedService<BulkOperationsService>();
-                   services.AddHostedService<PlanScenarioBackgroundWorker>();
+                   //services.AddCouchbase(options =>
+                   //options
+                   //.WithConnectionString("couchbase://localhost")
+                   ////.WithConnectionString("couchbase://server1:11210,server2:11210,server3:11210")
+                   ////.WithConnectionString("couchbase://server1,server2,server3")
+                   ////.WithConnectionString("couchbase://cb-cluster")
+                   //.WithCredentials("Administrator", "*******")
+                   //.WithBuckets("Cache-Sample"));
+                   //services.AddCouchbaseBucket<ICouchbaseCacheBucketProvider>("Cache-Sample");
+                   //services.AddDistributedCouchbaseCache("Cache-Sample", opt => { });
+                   //services.AddHostedService<BulkOperationsService>();
+                   //services.AddHostedService<PlanScenarioBackgroundWorker>();
+                   services.AddHostedService<BackgroundWorker>();
                });
     }
 }
